@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  app:
+    build:
+     context: .
+     dockerfile: Dockerfile
+    expose: ["8080"]
+
+  proxy:
+    build:
+     context: /Users/german/Documents/workspace-sts/myimages
+     dockerfile: Dockerfile
+    ports: ["80:80"]
+    links: [app]
